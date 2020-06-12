@@ -96,8 +96,8 @@ const binaryTree::nodeTree* binaryTree::parrent(const binaryTree::nodeTree *root
         if ((root->right && root->right->data==current->data) || (root->left && root->left->data==current->data))
             return root;
         else{
-            const binaryTree::nodeTree* r1=parrent1(root->right,current);
-            const binaryTree::nodeTree* r2=parrent1(root->left,current);
+            const binaryTree::nodeTree* r1=parrent(root->right,current);
+            const binaryTree::nodeTree* r2=parrent(root->left,current);
             if (r1)
                 return r1;
             if (r2)

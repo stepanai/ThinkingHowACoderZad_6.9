@@ -11,6 +11,6 @@ int main() {
         root.addHeapy(i);
     root.print();
     cout<<"==============="<<endl;
-    cout<<root.leafCount();
+    //cout<<root.leafCount();
     return 0;
 }

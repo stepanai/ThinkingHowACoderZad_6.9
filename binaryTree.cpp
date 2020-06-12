@@ -70,8 +70,8 @@ int binaryTree::leafCount() const{
     return leafCount(_root);
 }
 
-void binaryTree::toHeapy(binaryTree::nodeTree *current) {
-    nodeTree *parr=parrent(_root,current);
+void binaryTree::toHeapy(binaryTree::nodeTree *current)const {
+    nodeTree *parr=const_cast<nodeTree*>(parrent(_root,current));
     if (parr)
         if (current->data>parr->data){
             int temp=current->data;
@@ -81,7 +81,7 @@ void binaryTree::toHeapy(binaryTree::nodeTree *current) {
         }
 }
 
-binaryTree::nodeTree *binaryTree::parrent(binaryTree::nodeTree *root, binaryTree::nodeTree *current) const{
+binaryTree::nodeTree const*binaryTree::parrent(binaryTree::nodeTree const*root, binaryTree::nodeTree const*current) const{
     if (!current || current==root)
         return nullptr;
     if (root){
@@ -98,7 +98,7 @@ binaryTree::nodeTree *binaryTree::parrent(binaryTree::nodeTree *root, binaryTree
                 return parrent(root->left,current);
         }
     }
-    return 0;
+    return nullptr;
 }
 
 void binaryTree::addHeapy(int data) {

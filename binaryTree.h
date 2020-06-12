@@ -21,8 +21,8 @@ private:
         nodeTree *left;
         nodeTree *right;
     };
-    void toHeapy(nodeTree* current);
-    nodeTree* parrent(nodeTree *root, nodeTree *current) const;
+    void toHeapy(nodeTree* current)const;
+    nodeTree const* parrent(nodeTree const*root, nodeTree const*current) const;
     nodeTree* addNode(nodeTree *&root,int data);
     void printTree(nodeTree const*p, int level)const;
     void deleteTree(nodeTree *&root);

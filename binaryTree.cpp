@@ -107,3 +107,36 @@ const binaryTree::nodeTree* binaryTree::parrent(const binaryTree::nodeTree *root
     return nullptr;
 
 }
+
+bool binaryTree::isHeapy(const binaryTree::nodeTree *root) const {
+    if (root){
+        if (root->left && root->right) {
+            if (root->data>=root->left->data && root->data>=root->right->data)
+                /*bool r1=isHeapy(root->right);
+                bool r2=isHeapy(root->left);*/
+                return isHeapy(root->right) && isHeapy(root->left);
+            else
+                return false;
+        }
+        if (root->left){
+            if (root->data>=root->left->data)
+                return isHeapy(root->left);
+            else
+                return false;
+        }
+        if (root->right){
+            if (root->data>=root->right->data)
+                return isHeapy(root->right);
+            else
+                return false;
+        }
+        return true;
+    }
+    return false;
+}
+
+bool binaryTree::isHeapy()const {
+    return isHeapy(_root);
+}
+
+

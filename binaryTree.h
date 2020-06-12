@@ -13,7 +13,8 @@ public:
     int leafCount()const;
     void add(int data);
     void addHeapy(int data);
-    void print()const ;
+    void print()const;
+    bool isHeapy()const;
 
 private:
     struct nodeTree{
@@ -27,6 +28,7 @@ private:
     void printTree(nodeTree const*p, int level)const;
     void deleteTree(nodeTree *&root);
     int leafCount(nodeTree const*root)const;
+    bool isHeapy(nodeTree const*root)const;
 
     nodeTree *_root;
 };

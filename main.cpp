@@ -11,6 +11,10 @@ int main() {
         root.addHeapy(i);
     root.print();
     cout<<"==============="<<endl;
+    if (root.isHeapy())
+        cout<<"is Binaty Heap";
+    else
+        cout<<"is not Binary Heap";
     //cout<<root.leafCount();
     return 0;
 }

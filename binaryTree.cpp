@@ -81,26 +81,29 @@ void binaryTree::toHeapy(binaryTree::nodeTree *current)const {
         }
 }
 
-binaryTree::nodeTree const*binaryTree::parrent(binaryTree::nodeTree const*root, binaryTree::nodeTree const*current) const{
-    if (!current || current==root)
-        return nullptr;
-    if (root){
-        if (current->data<root->data){
-            if (root->right->data==current->data)
-                return root;
-            else
-                return parrent(root->right,current);
-        }
-        else{
-            if (root->left->data==current->data)
-                return root;
-            else
-                return parrent(root->left,current);
-        }
-    }
-    return nullptr;
-}
+
 
 void binaryTree::addHeapy(int data) {
     toHeapy(addNode(_root,data));
+}
+
+
+
+const binaryTree::nodeTree* binaryTree::parrent(const binaryTree::nodeTree *root, const binaryTree::nodeTree *current) const {
+    if (!current || current==root)
+        return nullptr;
+    if (root){
+        if ((root->right && root->right->data==current->data) || (root->left && root->left->data==current->data))
+            return root;
+        else{
+            const binaryTree::nodeTree* r1=parrent1(root->right,current);
+            const binaryTree::nodeTree* r2=parrent1(root->left,current);
+            if (r1)
+                return r1;
+            if (r2)
+                return r2;
+        }
+    }
+    return nullptr;
+
 }
